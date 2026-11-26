@@ -2,317 +2,46 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>О проекте — Зелёный город</title>
-  <meta name="description" content="О сайте о природе, растениях и заботе об окружающей среде.">
   <style>
-:root {
-  --bg: #f6f7fb;
-  --surface: #ffffff;
-  --ink: #1b2340;
-  --muted: #65708d;
-  --primary: #4457d8;
-  --primary-dark: #2f3eb0;
-  --accent: #16b8a6;
-  --border: #e5e8f2;
-  --radius: 16px;
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  line-height: 1.6;
-  color: var(--ink);
-  background: var(--bg);
-}
-
-.container {
-  width: min(1100px, calc(100% - 40px));
-  margin: 0 auto;
-}
-
-a { color: var(--primary-dark); }
-code {
-  background: #eef0fa;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1px 6px;
-  font-size: 0.92em;
-}
-
-/* Шапка */
-.site-header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 72px;
-  gap: 20px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--ink);
-}
-
-.brand-accent { color: var(--primary); }
-
-.main-nav { display: flex; gap: 8px; flex-wrap: wrap; }
-
-.main-nav a {
-  text-decoration: none;
-  color: var(--muted);
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 10px;
-}
-
-.main-nav a:hover,
-.main-nav a.active {
-  color: var(--primary-dark);
-  background: #eef0fc;
-}
-
-/* Первый экран */
-.hero {
-  background: linear-gradient(135deg, #1d2752 0%, #3d4fb8 55%, #16b8a6 140%);
-  color: #fff;
-  padding: 88px 0 96px;
-}
-
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin: 0 0 14px;
-}
-
-.hero .eyebrow { color: #8ff0e2; }
-
-.hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
-  line-height: 1.1;
-  margin: 0 0 20px;
-}
-
-.hero-text {
-  max-width: 660px;
-  font-size: 1.08rem;
-  color: #e5e9ff;
-}
-
-.hero code {
-  background: rgba(255,255,255,0.14);
-  border-color: rgba(255,255,255,0.25);
-  color: #fff;
-}
-
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
-
-.btn {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 10px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: transform .15s ease, background .15s ease;
-}
-
-.btn:hover { transform: translateY(-2px); }
-.btn-primary { background: var(--primary); color: #fff; }
-.btn-primary:hover { background: var(--primary-dark); }
-.btn-outline { border: 1px solid rgba(255,255,255,0.6); color: #fff; }
-.btn-outline:hover { background: rgba(255,255,255,0.12); }
-
-/* Секции */
-section { padding: 72px 0; }
-h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 16px; }
-h3 { margin: 0 0 10px; }
-.lead { font-size: 1.1rem; color: var(--muted); max-width: 720px; }
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 22px;
-  margin-top: 32px;
-}
-
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px;
-  box-shadow: 0 8px 24px rgba(24, 34, 76, 0.05);
-}
-
-.card-icon {
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  background: #eef0fc;
-  color: var(--primary-dark);
-  font-weight: 800;
-  margin-bottom: 18px;
-}
-
-.card p, .content p { color: var(--muted); margin: 0; }
-
-.hosting { padding-top: 0; }
-
-.hosting-box {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 36px;
-}
-
-.hosting-box p { color: var(--muted); margin: 0 0 8px; }
-
-.url {
-  display: inline-block;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--primary-dark) !important;
-  background: #eef0fc;
-  padding: 8px 14px;
-  border-radius: 10px;
-  word-break: break-all;
-}
-
-.tip-list { max-width: 760px; margin: 0; padding-left: 22px; color: var(--muted); }
-.tip-list li { margin-bottom: 12px; }
-
-.contacts { background: #1d2752; color: #fff; margin-top: 20px; }
-.contacts h2 { color: #fff; }
-.contacts p { color: #cfd6f5; }
-.contacts a { color: #8ff0e2; }
-
-.site-footer {
-  background: #151c3b;
-  color: #a8b1d4;
-  padding: 22px 0;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-/* Страница «О сайте» */
-.page-head { padding: 64px 0 30px; }
-.content { padding-top: 30px; }
-.content-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 40px;
-  align-items: start;
-}
-
-.content-grid h2 { margin-top: 28px; }
-.content-grid h2:first-child { margin-top: 0; }
-.content-grid ul { color: var(--muted); padding-left: 22px; }
-.content-grid li { margin-bottom: 8px; }
-
-.aside-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 26px;
-}
-
-.aside-card p { color: var(--muted); font-size: 0.95rem; }
-.aside-card .btn { margin-top: 10px; font-size: 0.9rem; }
-
-@media (max-width: 760px) {
-  .header-inner { flex-direction: column; align-items: flex-start; padding: 14px 0; }
-  .hero { padding: 64px 0 72px; }
-  .content-grid { grid-template-columns: 1fr; }
-  .hosting-box { padding: 24px; }
-}
-
-</style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f5f7f5; color: #223; line-height: 1.5; }
+    header { background: #2e6b4f; color: #fff; padding: 20px; text-align: center; }
+    nav a { color: #fff; margin: 0 12px; }
+    main { max-width: 760px; margin: 30px auto; padding: 0 20px; }
+    h1, h2 { color: #2e6b4f; }
+    .box { background: #fff; padding: 16px 20px; border-radius: 8px; margin: 16px 0; }
+    footer { text-align: center; padding: 20px; background: #e3ebe5; }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" role="img" aria-label="Логотип"><rect width="40" height="40" rx="11" fill="#4457d8"/><path d="M11 27V13h9a5 5 0 0 1 0 10h-4" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28" cy="26" r="3" fill="#8ff0e2"/></svg>
-        <span>Зелёный<span class="brand-accent">город</span></span>
-      </a>
-      <nav class="main-nav" aria-label="Главное меню">
-        <a href="index.html">Главная</a>
-        <a href="about.html" class="active">О проекте</a>
-        <a href="index.html#tips">Советы</a>
-      </nav>
-    </div>
+  <header>
+    <h1>Зелёный город</h1>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О проекте</a>
+    </nav>
   </header>
 
   <main>
-    <section class="page-head">
-      <div class="container">
-        <p class="eyebrow">О проекте</p>
-        <h1>Зачем нужен этот сайт</h1>
-        <p class="lead">Небольшое собрание наблюдений и советов о природе, которую легко увидеть даже в обычном городе.</p>
-      </div>
-    </section>
+    <h2>О проекте</h2>
+    <p>Это небольшой сайт о природе, растениях и заботе об окружающей среде.</p>
 
-    <section class="content">
-      <div class="container content-grid">
-        <article>
-          <h2>Наша цель</h2>
-          <p>
-            Показать, что забота об окружающей среде начинается с малого: с одного
-            растения на подоконнике, с прогулки по знакомому маршруту,
-            во время которого вдруг замечаешь много нового.
-          </p>
-          <h2>Что здесь можно найти</h2>
-          <ul>
-            <li>простые идеи, как делать город зеленее;</li>
-            <li>советы по уходу за комнатными растениями;</li>
-            <li>небольшие наблюдения за природой в повседневной жизни.</li>
-          </ul>
-          <h2>Как пользоваться сайтом</h2>
-          <p>
-            Выберите раздел в меню или пролистайте главную страницу. Материалы
-            расположены так, чтобы их можно было прочитать за пару минут — без
-            сложных терминов и лишних деталей.
-          </p>
-        </article>
-        <aside class="aside-card">
-          <h3>Полезно знать</h3>
-          <p>Растениям нужен свет, вода и немного внимания — этого достаточно для начала.</p>
-          <p>Лучше поливать реже, но обильно, чем часто и понемногу.</p>
-          <p>Наблюдение за растениями помогает лучше понимать времена года.</p>
-          <a class="btn btn-primary" href="index.html">На главную</a>
-        </aside>
-      </div>
-    </section>
+    <div class="box">
+      <h3>Наша цель</h3>
+      <p>Показать, что забота о природе начинается с малого: с одного растения, с прогулки по знакомому маршруту, с внимания к тому, что вокруг.</p>
+    </div>
+
+    <h2>Что здесь есть</h2>
+    <ul>
+      <li>советы по уходу за растениями;</li>
+      <li>идеи, как делать город зеленее;</li>
+      <li>небольшие наблюдения за природой.</li>
+    </ul>
+
+    <p><a href="index.html">На главную</a></p>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2026 Зелёный город. Сайт о природе и заботе об окружающей среде.</p>
-    </div>
-  </footer>
+  <footer>&copy; 2026 Зелёный город</footer>
 </body>
 </html>
